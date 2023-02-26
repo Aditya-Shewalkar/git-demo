@@ -1,0 +1,219 @@
+blab-14@blab14-OptiPlex-5060:~$ git --version
+git version 2.25.1
+
+blab-14@blab14-OptiPlex-5060:~/33368$ git init
+Initialized empty Git repository in /home/blab-14/33368/.git/
+blab-14@blab14-OptiPlex-5060:~/33368$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+blab-14@blab14-OptiPlex-5060:~/33368$ git add -A
+blab-14@blab14-OptiPlex-5060:~/33368$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+
+blab-14@blab14-OptiPlex-5060:~/33368$ git commit -m "initial demo commit"
+[master (root-commit) 8b31b13] initial demo commit
+ 1 file changed, 12 insertions(+)
+ create mode 100644 index.html
+blab-14@blab14-OptiPlex-5060:~/33368$ gh create repo
+
+Command 'gh' not found, but can be installed with:
+
+sudo snap install gh       # version 2.6.0-15-g1a10fd5a, or
+sudo apt  install gitsome  # version 0.8.0+ds-4
+
+See 'snap info gh' for additional versions.
+
+blab-14@blab14-OptiPlex-5060:~/33368$ sudo apt install gh
+[sudo] password for blab-14: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+
+No apt package "gh", but there is a snap with that name.
+Try "snap install gh"
+
+E: Unable to locate package gh
+blab-14@blab14-OptiPlex-5060:~/33368$ snap install gh
+gh 2.6.0-15-g1a10fd5a from Casper (casper-dcl) installed
+blab-14@blab14-OptiPlex-5060:~/33368$ gh repo
+Work with GitHub repositories.
+
+USAGE
+  gh repo <command> [flags]
+
+CORE COMMANDS
+  archive:     Archive a repository
+  clone:       Clone a repository locally
+  create:      Create a new repository
+  delete:      Delete a repository
+  deploy-key:  Manage deploy keys in a repository
+  edit:        Edit repository settings
+  fork:        Create a fork of a repository
+  list:        List repositories owned by user or organization
+  rename:      Rename a repository
+  sync:        Sync a repository
+  view:        View a repository
+
+INHERITED FLAGS
+  --help   Show help for command
+
+ARGUMENTS
+  A repository can be supplied as an argument in any of the following formats:
+  - "OWNER/REPO"
+  - by URL, e.g. "https://github.com/OWNER/REPO"
+
+EXAMPLES
+  $ gh repo create
+  $ gh repo clone cli/cli
+  $ gh repo view --web
+
+LEARN MORE
+  Use 'gh <command> <subcommand> --help' for more information about a command.
+  Read the manual at https://cli.github.com/manual
+
+blab-14@blab14-OptiPlex-5060:~/33368$ git config --list
+user.email=adityashewalkar16@gmail.com
+user.name=Aditya-Shewalkar
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+blab-14@blab14-OptiPlex-5060:~/33368$ ^C
+blab-14@blab14-OptiPlex-5060:~/33368$ gh repo view --web
+Welcome to GitHub CLI!
+
+To authenticate, please run `gh auth login`.
+blab-14@blab14-OptiPlex-5060:~/33368$ gh auth login
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations? HTTPS
+? Authenticate Git with your GitHub credentials? Yes
+? How would you like to authenticate GitHub CLI? Paste an authentication token
+Tip: you can generate a Personal Access Token here https://github.com/settings/tokens
+The minimum required scopes are 'repo', 'read:org', 'workflow'.
+? Paste your authentication token: ****************************************
+error validating token: missing required scope 'read:org'
+blab-14@blab14-OptiPlex-5060:~/33368$ gh auth login
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations? HTTPS
+? Authenticate Git with your GitHub credentials? Yes
+? How would you like to authenticate GitHub CLI? Paste an authentication token
+Tip: you can generate a Personal Access Token here https://github.com/settings/tokens
+The minimum required scopes are 'repo', 'read:org', 'workflow'.
+? Paste your authentication token: ****************************************
+- gh config set -h github.com git_protocol https
+✓ Configured git protocol
+✓ Logged in as Aditya-Shewalkar
+blab-14@blab14-OptiPlex-5060:~/33368$ gh repo view --web
+no git remotes found
+blab-14@blab14-OptiPlex-5060:~/33368$ gh remote -v
+unknown command "remote" for "gh"
+
+Usage:  gh <command> <subcommand> [flags]
+
+Available commands:
+  alias
+  api
+  auth
+  browse
+  codespace
+  completion
+  config
+  extension
+  gist
+  gpg-key
+  help
+  issue
+  pr
+  release
+  repo
+  run
+  search
+  secret
+  ssh-key
+  workflow
+
+blab-14@blab14-OptiPlex-5060:~/33368$ git remote -v
+blab-14@blab14-OptiPlex-5060:~/33368$ gh repo create "git-demo" --public
+✓ Created repository Aditya-Shewalkar/git-demo on GitHub
+blab-14@blab14-OptiPlex-5060:~/33368$ git remote add https://github.com/Aditya-Shewalkar/git-demo.git
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=(push|fetch)]
+                          set up remote as a mirror to push to or fetch from
+
+blab-14@blab14-OptiPlex-5060:~/33368$ git remote add origin https://github.com/Aditya-Shewalkar/git-demo.git
+blab-14@blab14-OptiPlex-5060:~/33368$ git remote -v
+origin  https://github.com/Aditya-Shewalkar/git-demo.git (fetch)
+origin  https://github.com/Aditya-Shewalkar/git-demo.git (push)
+blab-14@blab14-OptiPlex-5060:~/33368$ git branch -v
+* master 8b31b13 initial demo commit
+blab-14@blab14-OptiPlex-5060:~/33368$ git push -u origin master
+remote: Permission to Aditya-Shewalkar/git-demo.git denied to Tanu222.
+fatal: unable to access 'https://github.com/Aditya-Shewalkar/git-demo.git/': The requested URL returned error: 403
+blab-14@blab14-OptiPlex-5060:~/33368$ git config -e
+blab-14@blab14-OptiPlex-5060:~/33368$ git remote add origin git@github.com:Aditya-Shewalkar/git-demo.git
+fatal: remote origin already exists.
+blab-14@blab14-OptiPlex-5060:~/33368$ git config user.password
+blab-14@blab14-OptiPlex-5060:~/33368$ git config user.email
+adityashewalkar16@gmail.com
+blab-14@blab14-OptiPlex-5060:~/33368$ git config user.password "pict123"
+blab-14@blab14-OptiPlex-5060:~/33368$ git push -u origin master
+remote: Permission to Aditya-Shewalkar/git-demo.git denied to Tanu222.
+fatal: unable to access 'https://github.com/Aditya-Shewalkar/git-demo.git/': The requested URL returned error: 403
+blab-14@blab14-OptiPlex-5060:~/33368$ git config --list --show-origin
+file:/home/blab-14/.gitconfig   user.email=adityashewalkar16@gmail.com
+file:/home/blab-14/.gitconfig   user.name=Aditya-Shewalkar
+file:.git/config        core.repositoryformatversion=0
+file:.git/config        core.filemode=true
+file:.git/config        core.bare=false
+file:.git/config        core.logallrefupdates=true
+file:.git/config        remote.origin.url=https://github.com/Aditya-Shewalkar/git-demo.git
+file:.git/config        remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+file:.git/config        user.password=pict123
+blab-14@blab14-OptiPlex-5060:~/33368$ git remote set-url origin git+ssh://git@github.com:Aditya-Shewalkar/git-demo.git
+blab-14@blab14-OptiPlex-5060:~/33368$ git push -u origin master
+ssh: Could not resolve hostname github.com:Aditya-Shewalkar: Name or service not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+blab-14@blab14-OptiPlex-5060:~/33368$ git config -e
+blab-14@blab14-OptiPlex-5060:~/33368$ git config user.name Aditya-Shewalkar
+blab-14@blab14-OptiPlex-5060:~/33368$ git config user.email adityashewalkar16@gmail.com
+blab-14@blab14-OptiPlex-5060:~/33368$ git push -u origin master
+ssh: Could not resolve hostname github.com:Aditya-Shewalkar: Name or service not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+blab-14@blab14-OptiPlex-5060:~/33368$ git remote set-url origin https://github.com/Aditya-Shewalkar/git-demo.git
+blab-14@blab14-OptiPlex-5060:~/33368$ git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 415 bytes | 415.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/Aditya-Shewalkar/git-demo.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+blab-14@blab14-OptiPlex-5060:~/33368$ 
